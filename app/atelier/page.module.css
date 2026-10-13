@@ -1,0 +1,80 @@
+.page {
+  --atelier-canvas: #f7f4ed;
+  --atelier-surface: #fffdf8;
+  --atelier-ink: #242724;
+  --atelier-secondary: #62655f;
+  --atelier-bronze: #86654a;
+  --atelier-sage: #dce3dc;
+  --atelier-line: #d8d4cb;
+  --atelier-width: 1240px;
+
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: clip;
+  background: var(--atelier-canvas);
+  color: var(--atelier-ink);
+  font-family: var(--font-arabic);
+}
+
+.main {
+  display: block;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.skipLink {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  inset-inline-start: 12px;
+  padding: 12px 16px;
+  transform: translateY(-160%);
+  background: var(--atelier-surface);
+  color: var(--atelier-ink);
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--atelier-bronze);
+  outline-offset: 3px;
+}
+
+.footer {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px max(24px, calc((100vw - var(--atelier-width)) / 2));
+  border-top: 1px solid var(--atelier-line);
+  background: var(--atelier-canvas);
+  color: var(--atelier-secondary);
+}
+
+.brand {
+  color: var(--atelier-ink);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  text-align: end;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding-inline: 18px;
+  }
+
+  .footer p {
+    text-align: start;
+  }
+}
