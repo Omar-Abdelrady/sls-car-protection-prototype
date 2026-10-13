@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { LocaleToggle, useLocale } from "@/components/locale-toggle";
 
 const copy = {
-  ar: { services: "الخدمات", story: "النتيجة", process: "الخطوات", faq: "الأسئلة", quote: "احجز تقييم", menu: "فتح القائمة", close: "إغلاق القائمة" },
-  en: { services: "Services", story: "The result", process: "Process", faq: "FAQ", quote: "Get a quote", menu: "Open menu", close: "Close menu" },
+  ar: { services: "الخدمات", story: "فحص الطلاء", process: "خط السير", faq: "الأسئلة", quote: "اطلب حماية", menu: "فتح القائمة", close: "إغلاق القائمة" },
+  en: { services: "Services", story: "Paint scan", process: "Workflow", faq: "FAQ", quote: "Protect my car", menu: "Open menu", close: "Close menu" },
 } as const;
 
 export function SiteHeader() {
