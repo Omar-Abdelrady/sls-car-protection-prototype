@@ -5,6 +5,7 @@ const basePath = process.env.GITHUB_ACTIONS ? `/${repositoryName}` : "";
 
 const nextConfig: NextConfig = {
   output: "export",
+  trailingSlash: true,
   basePath,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
