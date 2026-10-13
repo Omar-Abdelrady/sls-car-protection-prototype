@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { clampRevealProgress } from "@/components/reveal-progress";
+import { clampRevealProgress, formatRevealProgress } from "@/components/reveal-progress";
 import { useLocale } from "@/components/locale-toggle";
 
 export function ProtectionReveal() {
@@ -43,15 +43,17 @@ export function ProtectionReveal() {
     <section className="protection-story" id="protection" ref={sectionRef} aria-labelledby="protection-title">
       <div className="protection-sticky shell-width">
         <div className="protection-copy">
-          <p className="eyebrow"><span>02</span>{isArabic ? "شوف الفرق بنفسك" : "See the difference"}</p>
-          <h2 id="protection-title">{isArabic ? "حماية بتبان في كل انعكاس." : "Protection you can see in every reflection."}</h2>
-          <p>{isArabic ? "اسحب معاك بالسكرول وشوف السطح بيتحول من لمعة عادية لطبقة حماية أنضف وأهدى." : "Scroll through the finish as the surface moves from everyday wear to a cleaner, calmer gloss."}</p>
-          <div className="reveal-readout" aria-live="polite"><span>{String(progress).padStart(2, "0")}%</span><small>{isArabic ? "نسبة الحماية" : "Protection reveal"}</small></div>
+          <p className="eyebrow"><span>02</span>{isArabic ? "مسح السطح" : "Paint scan"}</p>
+          <h2 id="protection-title">{isArabic ? "الفرق بيتقاس، مش بيتحكي." : "The difference is measured, not claimed."}</h2>
+          <p>{isArabic ? "انزل بالسكرول وشوف طبقة الحماية وهي بتعدّي على السطح — من بوية مكشوفة لتشطيب جاهز للشارع." : "Scroll through the finish as protection moves across the surface — from exposed paint to a road-ready finish."}</p>
+          <div className="reveal-readout" aria-live="polite"><span>{formatRevealProgress(progress)}</span><small>{isArabic ? "قراءة المسح" : "Scan reading"}</small></div>
         </div>
         <div className="reveal-frame" style={{ "--reveal": `${progress}%` } as CSSProperties}>
           <Image className="reveal-image reveal-before" src="/images/before-protection.png" alt={isArabic ? "سيارة قبل تركيب حماية الطلاء" : "Car before paint protection"} fill sizes="(max-width: 800px) 92vw, 65vw" priority />
           <div className="reveal-after" aria-hidden="true"><Image className="reveal-image" src="/images/after-protection.png" alt="" fill sizes="(max-width: 800px) 92vw, 65vw" /></div>
-          <div className="reveal-handle" aria-hidden="true"><span /></div>
+          <div className="reveal-film-sheen" aria-hidden="true" />
+          <div className="reveal-handle" aria-hidden="true" />
+          <div className="reveal-measurement" aria-hidden="true"><span>SCAN</span><i /><b>{formatRevealProgress(progress)}</b></div>
           <div className="reveal-label reveal-label-before">{beforeLabel}</div>
           <div className="reveal-label reveal-label-after">{afterLabel}</div>
         </div>

@@ -8,3 +8,8 @@ export function clampRevealProgress(
   const rawProgress = ((scrollY - sectionTop) / travel) * 100;
   return Math.min(100, Math.max(0, Math.round(rawProgress)));
 }
+
+export function formatRevealProgress(progress: number) {
+  const safeProgress = Math.min(100, Math.max(0, Math.round(progress)));
+  return `${String(safeProgress).padStart(2, "0")}%`;
+}

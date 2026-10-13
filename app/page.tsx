@@ -15,9 +15,18 @@ const content = {
     navCta: "Get a quote", eyebrow: "Precision car care", title: "Protect the car you love.", lead: "Paint protection, PPF and meticulous detailing for drivers who notice the difference.", primary: "Get a quote", secondary: "Call us", location: "The View Promenade · after Gate 4", scroll: "Scroll to see the difference", trust: "Trust built on detail", servicesLabel: "01 / Services", servicesTitle: "Every layer has a reason.", servicesLead: "We start with a clear inspection, then recommend the right protection without overpromising.", processLabel: "03 / Our process", processTitle: "From first inspection to final gloss.", processLead: "A calm, structured experience built around the finish your car deserves.", contactTitle: "Ready to protect your dream?", contactLead: "Send us your car model and a quick photo. We will guide you to the right next step.", footer: "Protect your dream", faqTitle: "Before you visit", faq: [{ question: "Where do I start?", answer: "Send us your car model and a photo, or call us to arrange the right evaluation." }, { question: "Where are you located?", answer: "The View Promenade, Waslet Dahshour, after Gate 4 in Sheikh Zayed." }, { question: "How do I book?", answer: "Message us on WhatsApp or call 011 00666717 directly." }], services: [{ icon: ShieldCheck, title: "Paint Protection Film", text: "A clear protective layer designed to help preserve the paint finish." }, { icon: Sparkles, title: "Detailing", text: "Careful preparation that brings out every line and reflection." }, { icon: Check, title: "Care plans", text: "A simple recommendation based on how you drive and what you want." }], steps: ["Inspect", "Prepare", "Protect", "Deliver"] },
 } as const;
 
+const serviceVisuals = [
+  "/images/ppf-application.png",
+  "/images/paint-protection-detail.png",
+  "/images/hero-garage.png",
+] as const;
+
 export default function Home() {
   const { locale } = useLocale();
   const t = content[locale];
+  const processSteps = locale === "ar"
+    ? ["فحص الطلاء", "تجهيز السطح", "تركيب الحماية", "مراجعة وتسليم"]
+    : ["Paint inspection", "Surface preparation", "Protection install", "Review and handover"];
   return <div className="site-shell">
     <a className="skip-link" href="#main-content">{locale === "ar" ? "انتقل للمحتوى" : "Skip to content"}</a>
     <SiteHeader />
@@ -25,9 +34,27 @@ export default function Home() {
       <CinematicHero />
       <ProtectionReveal />
 
-      <section className="services-section" id="services"><div className="shell-width section-grid"><div className="section-intro"><p className="eyebrow"><span>{t.servicesLabel.slice(0, 2)}</span>{t.servicesLabel.slice(4)}</p><h2>{t.servicesTitle}</h2><p>{t.servicesLead}</p><Image src="/images/ppf-application.png" alt={locale === "ar" ? "تطبيق طبقة حماية شفافة على سيارة" : "Applying a clear protection layer to a car"} width={1448} height={1086} className="section-image" /></div><div className="service-list">{t.services.map(({ icon: Icon, title, text }, index) => <article className="service-card" key={title}><span className="service-index">0{index + 1}</span><Icon size={23} /><h3>{title}</h3><p>{text}</p><ArrowUpLeft className="service-arrow" size={19} /></article>)}</div></div></section>
+      <section className="services-section" id="services">
+        <div className="shell-width">
+          <div className="section-heading-row">
+            <div className="section-intro"><p className="eyebrow"><span>{t.servicesLabel.slice(0, 2)}</span>{t.servicesLabel.slice(4)}</p><h2>{t.servicesTitle}</h2></div>
+            <p className="section-lead">{t.servicesLead}</p>
+          </div>
+          <div className="service-list">
+            {t.services.map(({ icon: Icon, title, text }, index) => (
+              <article className="service-card" key={title}>
+                <div className="service-visual">
+                  <Image src={serviceVisuals[index]} alt="" fill sizes="(max-width: 720px) 92vw, 32vw" />
+                  <span className="service-index">0{index + 1}</span>
+                </div>
+                <div className="service-body"><Icon size={24} /><h3>{title}</h3><p>{text}</p><ArrowUpLeft className="service-arrow" size={19} /></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <section className="process-section" id="process"><div className="shell-width process-layout"><div><p className="eyebrow"><span>{t.processLabel.slice(0, 2)}</span>{t.processLabel.slice(4)}</p><h2>{t.processTitle}</h2><p className="process-lead">{t.processLead}</p></div><div className="process-steps">{t.steps.map((step, index) => <div className="process-step" key={step}><span>0{index + 1}</span><strong>{step}</strong><i /></div>)}</div></div></section>
+      <section className="process-section" id="process"><div className="shell-width process-layout"><div><p className="eyebrow"><span>{t.processLabel.slice(0, 2)}</span>{t.processLabel.slice(4)}</p><h2>{t.processTitle}</h2><p className="process-lead">{t.processLead}</p></div><div className="process-steps">{processSteps.map((step, index) => <div className="process-step" key={step}><span>0{index + 1}</span><strong>{step}</strong><i /></div>)}</div></div></section>
 
       <section className="faq-section" id="faq"><div className="shell-width faq-layout"><div><p className="eyebrow"><span>04</span>FAQ</p><h2>{t.faqTitle}</h2><Image src="/images/paint-protection-detail.png" alt={locale === "ar" ? "لمعة وحماية على سطح سيارة داكنة" : "Gloss and protection on a dark car surface"} width={1672} height={941} className="faq-image" /></div><FaqList items={t.faq} /></div></section>
 

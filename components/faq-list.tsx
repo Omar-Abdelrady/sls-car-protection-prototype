@@ -24,7 +24,12 @@ export function FaqList({ items }: { items: readonly FaqItem[] }) {
               <span>{item.question}</span>
               <Plus aria-hidden="true" size={21} />
             </button>
-            <div id={`faq-answer-${index}`} className="faq-answer" hidden={!isOpen}>
+            <div
+              id={`faq-answer-${index}`}
+              className="faq-answer"
+              aria-hidden={!isOpen}
+              hidden={!isOpen}
+            >
               <p>{item.answer}</p>
             </div>
           </div>
