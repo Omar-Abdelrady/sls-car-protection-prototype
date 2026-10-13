@@ -58,7 +58,6 @@ export function AtelierHeader() {
             width={80}
             height={53}
             className={styles.logo}
-            priority
           />
           <span className={styles.brandText}>
             <strong>SLS</strong>

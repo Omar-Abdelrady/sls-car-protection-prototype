@@ -16,6 +16,10 @@
   font-family: var(--font-arabic);
 }
 
+:global(html[lang="en"]) .page {
+  font-family: var(--font-ui);
+}
+
 .main {
   display: block;
   min-height: 100vh;
