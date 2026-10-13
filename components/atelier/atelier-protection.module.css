@@ -1,0 +1,216 @@
+.section {
+  padding: clamp(4.5rem, 9vw, 8.5rem) clamp(1.25rem, 6vw, 6rem);
+  color: #242724;
+  background: #fffdf8;
+}
+
+.inner {
+  max-width: 78rem;
+  margin-inline: auto;
+}
+
+.story {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.76fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: clamp(2.5rem, 8vw, 7.5rem);
+}
+
+.copy {
+  max-width: 31rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 0 1.35rem;
+  color: #62655f;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  color: #86654a;
+  font-variant-numeric: tabular-nums;
+}
+
+.copy h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.6vw, 3.45rem);
+  font-weight: 500;
+  line-height: 1.38;
+  text-wrap: balance;
+}
+
+.description {
+  margin: 1.2rem 0 0;
+  color: #62655f;
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.95;
+}
+
+.craftFigure,
+.finishFigure {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #dce3dc;
+}
+
+.craftFigure {
+  min-height: clamp(20rem, 43vw, 38rem);
+}
+
+.craftImage,
+.finishImage {
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.craftFigure figcaption,
+.finishFigure figcaption {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-end: 1rem;
+  padding: 0.5rem 0.75rem;
+  color: #242724;
+  background: rgb(255 253 248 / 92%);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.material {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.72fr);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 6rem);
+  margin-block-start: clamp(3rem, 7vw, 6.5rem);
+  padding-block-start: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid #d8d4cb;
+}
+
+.diagram {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.7fr) minmax(13rem, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  min-height: 13rem;
+}
+
+.layers {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  width: min(100%, 17rem);
+  transform: perspective(34rem) rotateY(-24deg) rotateX(8deg);
+}
+
+.layer {
+  display: block;
+  height: 2.35rem;
+  border: 1px solid rgb(36 39 36 / 12%);
+  border-radius: 0.4rem;
+  box-shadow: 0 0.5rem 1rem rgb(36 39 36 / 8%);
+}
+
+.paint {
+  background: linear-gradient(115deg, #d7d2c8, #f3f0e9 48%, #c3c0b7);
+}
+
+.film {
+  background: linear-gradient(110deg, rgb(220 227 220 / 60%), rgb(255 255 255 / 94%), rgb(194 207 197 / 72%));
+  border-color: rgb(134 101 74 / 35%);
+  transform: translateX(0.8rem);
+}
+
+.finish {
+  background: linear-gradient(110deg, #c9c8c1, #faf8f2 45%, #b6b8b1);
+  transform: translateX(1.6rem);
+}
+
+.layerLabels {
+  display: grid;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.layerLabels li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding-block-end: 0.65rem;
+  border-bottom: 1px solid #d8d4cb;
+  line-height: 1.6;
+}
+
+.layerLabels li span {
+  color: #86654a;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.layerLabels li b {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.finishFigure {
+  min-height: clamp(13rem, 22vw, 19rem);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .craftFigure:hover .craftImage,
+  .finishFigure:hover .finishImage {
+    transform: scale(1.025);
+  }
+}
+
+@media (max-width: 800px) {
+  .story,
+  .material {
+    grid-template-columns: 1fr;
+  }
+
+  .copy {
+    max-width: 39rem;
+  }
+
+  .craftFigure {
+    min-height: min(66vw, 30rem);
+  }
+
+  .material {
+    gap: 2rem;
+  }
+
+  .finishFigure {
+    min-height: min(56vw, 23rem);
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    padding-inline: 1.1rem;
+  }
+
+  .diagram {
+    grid-template-columns: minmax(6rem, 0.65fr) minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .layer {
+    height: 1.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .craftImage,
+  .finishImage {
+    transition: none;
+  }
+}
