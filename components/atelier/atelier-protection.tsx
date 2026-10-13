@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { useLocale } from "@/components/locale-toggle";
 import styles from "./atelier-protection.module.css";
 
@@ -40,7 +41,7 @@ export function AtelierProtection() {
           <figure className={styles.craftFigure}>
             <Image
               className={styles.craftImage}
-              src="/images/atelier/ppf-craft.png"
+              src={assetPath("/images/atelier/ppf-craft.png")}
               alt={isArabic ? "تركيب فيلم حماية شفاف على سطح سيارة" : "Clear paint protection film being fitted to a car panel"}
               fill
               sizes="(max-width: 800px) 100vw, 58vw"
@@ -69,7 +70,7 @@ export function AtelierProtection() {
           <figure className={styles.finishFigure}>
             <Image
               className={styles.finishImage}
-              src="/images/atelier/protected-finish.png"
+              src={assetPath("/images/atelier/protected-finish.png")}
               alt={isArabic ? "انعكاس ضوء النهار على سطح طلاء محمي" : "Daylight reflecting across a protected paint finish"}
               fill
               sizes="(max-width: 800px) 100vw, 34vw"

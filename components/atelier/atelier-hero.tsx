@@ -2,6 +2,7 @@
 
 import { ArrowUpLeft, MapPin } from "lucide-react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { useLocale } from "@/components/locale-toggle";
 import styles from "./atelier-hero.module.css";
 
@@ -62,7 +63,7 @@ export function AtelierHero() {
         <figure className={styles.imageFrame}>
           <Image
             className={styles.image}
-            src="/images/atelier/hero-daylight.png"
+            src={assetPath("/images/atelier/hero-daylight.png")}
             alt={t.imageAlt}
             width={1800}
             height={1126}

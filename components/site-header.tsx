@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { useEffect, useState } from "react";
 import { LocaleToggle, useLocale } from "@/components/locale-toggle";
 
@@ -35,7 +36,7 @@ export function SiteHeader() {
       <div className="header-float-shell">
         <div className="header-inner shell-width">
           <a className="brand" href="#home" onClick={closeMenu} aria-label="SLS home">
-            <Image src="/images/sls-logo.png" alt="SLS" width={54} height={38} className="brand-logo" priority />
+            <Image src={assetPath("/images/sls-logo.png")} alt="SLS" width={54} height={38} className="brand-logo" priority />
             <span className="brand-text"><strong>SLS</strong><small>Protect your dream</small></span>
           </a>
           <nav className="desktop-nav" aria-label="Primary navigation">

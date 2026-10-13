@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { ArrowDown, ArrowUpLeft, MapPin, MessageCircle, Phone } from "lucide-react";
 import { useRef, type CSSProperties, type PointerEvent } from "react";
 import { mapPointerToDepth } from "@/components/hero-depth";
@@ -86,10 +87,10 @@ export function CinematicHero() {
         <div className="hero-halo" aria-hidden="true" />
         <div className="hero-floor" aria-hidden="true" />
         <div className="hero-reflection" aria-hidden="true">
-          <Image src="/images/hero-car-3d.png" alt="" width={1774} height={887} sizes="90vw" />
+          <Image src={assetPath("/images/hero-car-3d.png")} alt="" width={1774} height={887} sizes="90vw" />
         </div>
         <div className="hero-car-layer">
-          <Image src="/images/hero-car-3d.png" alt={t.alt} width={1774} height={887} sizes="(max-width: 720px) 118vw, 82vw" priority />
+            <Image src={assetPath("/images/hero-car-3d.png")} alt={t.alt} width={1774} height={887} sizes="(max-width: 720px) 118vw, 82vw" priority />
         </div>
         <div className="hero-film-glint" aria-hidden="true" />
         <div className="hero-foreground-streak" aria-hidden="true" />

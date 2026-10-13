@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { clampRevealProgress, formatRevealProgress } from "@/components/reveal-progress";
 import { useLocale } from "@/components/locale-toggle";
@@ -49,8 +50,8 @@ export function ProtectionReveal() {
           <div className="reveal-readout" aria-live="polite"><span>{formatRevealProgress(progress)}</span><small>{isArabic ? "قراءة المسح" : "Scan reading"}</small></div>
         </div>
         <div className="reveal-frame" style={{ "--reveal": `${progress}%` } as CSSProperties}>
-          <Image className="reveal-image reveal-before" src="/images/before-protection.png" alt={isArabic ? "سيارة قبل تركيب حماية الطلاء" : "Car before paint protection"} fill sizes="(max-width: 800px) 92vw, 65vw" priority />
-          <div className="reveal-after" aria-hidden="true"><Image className="reveal-image" src="/images/after-protection.png" alt="" fill sizes="(max-width: 800px) 92vw, 65vw" /></div>
+          <Image className="reveal-image reveal-before" src={assetPath("/images/before-protection.png")} alt={isArabic ? "سيارة قبل تركيب حماية الطلاء" : "Car before paint protection"} fill sizes="(max-width: 800px) 92vw, 65vw" priority />
+          <div className="reveal-after" aria-hidden="true"><Image className="reveal-image" src={assetPath("/images/after-protection.png")} alt="" fill sizes="(max-width: 800px) 92vw, 65vw" /></div>
           <div className="reveal-film-sheen" aria-hidden="true" />
           <div className="reveal-handle" aria-hidden="true" />
           <div className="reveal-measurement" aria-hidden="true"><span>SCAN</span><i /><b>{formatRevealProgress(progress)}</b></div>

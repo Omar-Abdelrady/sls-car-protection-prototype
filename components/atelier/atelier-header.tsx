@@ -2,6 +2,7 @@
 
 import { ArrowUpLeft, Menu, X } from "lucide-react";
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { useState } from "react";
 import { LocaleToggle, useLocale } from "@/components/locale-toggle";
 import styles from "./atelier-header.module.css";
@@ -53,7 +54,7 @@ export function AtelierHeader() {
       <div className={styles.inner}>
         <a className={styles.brand} href="#home" onClick={closeMenu} aria-label={t.brand}>
           <Image
-            src="/images/sls-logo.png"
+            src={assetPath("/images/sls-logo.png")}
             alt="SLS"
             width={80}
             height={53}

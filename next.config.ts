@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
-const basePath = process.env.GITHUB_ACTIONS ? "/sls-car-protection" : "";
+const repositoryName = (process.env.GITHUB_REPOSITORY ?? "sls-car-protection-prototype").split("/").at(-1);
+const basePath = process.env.GITHUB_ACTIONS ? `/${repositoryName}` : "";
 
 const nextConfig: NextConfig = {
   output: "export",

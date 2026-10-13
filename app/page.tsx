@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { ArrowUpLeft, Check, MapPin, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
 import { CinematicHero } from "@/components/cinematic-hero";
 import { FaqList } from "@/components/faq-list";
@@ -16,9 +17,9 @@ const content = {
 } as const;
 
 const serviceVisuals = [
-  "/images/ppf-application.png",
-  "/images/paint-protection-detail.png",
-  "/images/hero-garage.png",
+  assetPath("/images/ppf-application.png"),
+  assetPath("/images/paint-protection-detail.png"),
+  assetPath("/images/hero-garage.png"),
 ] as const;
 
 export default function Home() {
@@ -62,7 +63,7 @@ export default function Home() {
             <p className="process-lead">{t.processLead}</p>
           </div>
           <div className="process-showcase">
-            <Image src="/images/ppf-application.png" alt={locale === "ar" ? "سيارة أثناء تركيب حماية الطلاء" : "Car during paint protection installation"} fill sizes="(max-width: 720px) 92vw, 58vw" />
+            <Image src={assetPath("/images/ppf-application.png")} alt={locale === "ar" ? "سيارة أثناء تركيب حماية الطلاء" : "Car during paint protection installation"} fill sizes="(max-width: 720px) 92vw, 58vw" />
             <div className="process-showcase-scrim" aria-hidden="true" />
             <div className="process-showcase-meta"><span>SLS / 04</span><small>{locale === "ar" ? "تجربة محسوبة" : "A measured experience"}</small></div>
             <div className="process-steps">
@@ -79,7 +80,7 @@ export default function Home() {
             <h2>{t.faqTitle}</h2>
             <p className="faq-intro-lead">{t.faqLead}</p>
             <div className="faq-image-frame">
-              <Image src="/images/paint-protection-detail.png" alt={locale === "ar" ? "لمعة وحماية على سطح سيارة داكنة" : "Gloss and protection on a dark car surface"} fill sizes="(max-width: 720px) 92vw, 40vw" />
+              <Image src={assetPath("/images/paint-protection-detail.png")} alt={locale === "ar" ? "لمعة وحماية على سطح سيارة داكنة" : "Gloss and protection on a dark car surface"} fill sizes="(max-width: 720px) 92vw, 40vw" />
               <span>{locale === "ar" ? "العناية تبدأ من السؤال الصح" : "The right care starts with the right question"}</span>
             </div>
           </div>
@@ -93,6 +94,6 @@ export default function Home() {
 
       <section className="contact-section"><div className="shell-width contact-card"><div><p className="eyebrow"><span>05</span>{locale === "ar" ? "خلينا نبدأ" : "Let's start"}</p><h2>{t.contactTitle}</h2><p>{t.contactLead}</p></div><div className="contact-actions"><a className="button button-bronze" href="https://wa.me/201100666717" target="_blank" rel="noreferrer"><MessageCircle size={18} />WhatsApp<ArrowUpLeft size={17} /></a><a className="button button-outline" href="https://www.google.com/maps/search/?api=1&query=SLS%20Car%20Paint%20Protection%20Film%20Zayed" target="_blank" rel="noreferrer"><MapPin size={17} />Maps</a></div></div></section>
     </main>
-    <footer className="site-footer"><div className="shell-width footer-inner"><div className="footer-brand"><Image src="/images/sls-logo.png" alt="SLS" width={80} height={53} /><span>SLS</span><small>{t.footer}</small></div><div className="footer-right"><LocaleToggle /><p>The View Promenade · Sheikh Zayed · 011 00666717</p></div></div></footer>
+    <footer className="site-footer"><div className="shell-width footer-inner"><div className="footer-brand"><Image src={assetPath("/images/sls-logo.png")} alt="SLS" width={80} height={53} /><span>SLS</span><small>{t.footer}</small></div><div className="footer-right"><LocaleToggle /><p>The View Promenade · Sheikh Zayed · 011 00666717</p></div></div></footer>
   </div>;
 }

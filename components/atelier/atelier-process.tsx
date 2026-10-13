@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetPath } from "@/lib/asset-path";
 import { ClipboardCheck, SearchCheck, Sparkles, Wrench } from "lucide-react";
 import { useLocale } from "@/components/locale-toggle";
 import styles from "./atelier-process.module.css";
@@ -75,7 +76,7 @@ export function AtelierProcess() {
         <figure className={styles.imageFigure}>
           <Image
             className={styles.image}
-            src="/images/atelier/inspection.png"
+            src={assetPath("/images/atelier/inspection.png")}
             alt={isArabic ? "فحص سطح طلاء السيارة قبل بدء العمل" : "Inspecting a car’s paint before work begins"}
             fill
             sizes="(max-width: 800px) 100vw, 100vw"
