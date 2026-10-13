@@ -13,6 +13,8 @@ describe("SiteHeader", () => {
 
     expect(screen.getByRole("banner")).toHaveClass("site-header");
     expect(screen.getByRole("banner")).not.toHaveClass("garage-rail");
+    expect(screen.getByRole("banner").querySelector(".header-float-shell")).not.toBeNull();
+    expect(screen.getByRole("navigation", { name: "Primary navigation" }).querySelectorAll("a")).toHaveLength(3);
     expect(screen.getAllByRole("link", { name: /اطلب حماية/i })[0]).toHaveAttribute("href", expect.stringContaining("wa.me"));
 
     const menu = screen.getByRole("button", { name: "فتح القائمة" });

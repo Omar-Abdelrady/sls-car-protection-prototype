@@ -12,6 +12,7 @@ describe("CinematicHero", () => {
     );
 
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("احمي");
+    expect(screen.getByRole("heading", { level: 1 }).parentElement).toHaveClass("hero-copy-inner");
     expect(screen.getByRole("img", { name: /سيارة جرافيت/i })).toBeVisible();
     expect(screen.getByRole("link", { name: /اطلب تقييم/i })).toHaveAttribute(
       "href",
