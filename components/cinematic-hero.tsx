@@ -69,14 +69,16 @@ export function CinematicHero() {
       <div className="hero-light hero-light-two" aria-hidden="true" />
 
       <div className="hero-copy-cinematic shell-width">
-        <p className="hero-overline"><span>SLS</span>{t.eyebrow}</p>
-        <h1>{t.title}</h1>
-        <p className="hero-cinematic-lead">{t.lead}</p>
-        <div className="hero-cinematic-actions">
-          <a className="button button-bronze" href="https://wa.me/201100666717" target="_blank" rel="noreferrer">
-            <MessageCircle size={18} />{t.primary}<ArrowUpLeft size={17} />
-          </a>
-          <a className="hero-phone" href="tel:+201100666717"><Phone size={17} />{t.secondary}</a>
+        <div className="hero-copy-inner">
+          <p className="hero-overline"><span>SLS</span>{t.eyebrow}</p>
+          <h1>{t.title}</h1>
+          <p className="hero-cinematic-lead">{t.lead}</p>
+          <div className="hero-cinematic-actions">
+            <a className="button button-bronze" href="https://wa.me/201100666717" target="_blank" rel="noreferrer">
+              <MessageCircle size={18} />{t.primary}<ArrowUpLeft size={17} />
+            </a>
+            <a className="hero-phone" href="tel:+201100666717"><Phone size={17} />{t.secondary}</a>
+          </div>
         </div>
       </div>
 

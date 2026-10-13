@@ -25,35 +25,36 @@ export function SiteHeader() {
 
   const closeMenu = () => setIsOpen(false);
   const links = [
-    ["services", t.services],
     ["protection", t.story],
-    ["process", t.process],
+    ["services", t.services],
     ["faq", t.faq],
   ] as const;
 
   return (
     <header className={`site-header ${isScrolled ? "is-scrolled" : ""}`}>
-      <div className="header-inner shell-width">
-        <a className="brand" href="#home" onClick={closeMenu} aria-label="SLS home">
-          <Image src="/images/sls-logo.png" alt="SLS" width={54} height={38} className="brand-logo" priority />
-          <span className="brand-text"><strong>SLS</strong><small>Protect your dream</small></span>
-        </a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {links.map(([id, label]) => <a href={`#${id}`} key={id}>{label}</a>)}
-        </nav>
-        <div className="header-actions">
-          <LocaleToggle />
-          <a className="header-cta" href="https://wa.me/201100666717" target="_blank" rel="noreferrer">
-            {t.quote}<ArrowUpRight size={15} aria-hidden="true" />
+      <div className="header-float-shell">
+        <div className="header-inner shell-width">
+          <a className="brand" href="#home" onClick={closeMenu} aria-label="SLS home">
+            <Image src="/images/sls-logo.png" alt="SLS" width={54} height={38} className="brand-logo" priority />
+            <span className="brand-text"><strong>SLS</strong><small>Protect your dream</small></span>
           </a>
-          <div className={`mobile-menu ${isOpen ? "is-open" : ""}`}>
-            <button className="mobile-menu-trigger" type="button" aria-label={isOpen ? t.close : t.menu} aria-expanded={isOpen} onClick={() => setIsOpen((value) => !value)}>
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-            <nav className="mobile-menu-panel" aria-label="Mobile navigation">
-              {links.map(([id, label]) => <a href={`#${id}`} key={id} onClick={closeMenu}>{label}</a>)}
-              <a className="mobile-booking" href="https://wa.me/201100666717" target="_blank" rel="noreferrer" onClick={closeMenu}>{t.quote}</a>
-            </nav>
+          <nav className="desktop-nav" aria-label="Primary navigation">
+            {links.map(([id, label]) => <a href={`#${id}`} key={id}>{label}</a>)}
+          </nav>
+          <div className="header-actions">
+            <LocaleToggle />
+            <a className="header-cta" href="https://wa.me/201100666717" target="_blank" rel="noreferrer">
+              {t.quote}<ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+            <div className={`mobile-menu ${isOpen ? "is-open" : ""}`}>
+              <button className="mobile-menu-trigger" type="button" aria-label={isOpen ? t.close : t.menu} aria-expanded={isOpen} onClick={() => setIsOpen((value) => !value)}>
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+              <nav className="mobile-menu-panel" aria-label="Mobile navigation">
+                {links.map(([id, label]) => <a href={`#${id}`} key={id} onClick={closeMenu}>{label}</a>)}
+                <a className="mobile-booking" href="https://wa.me/201100666717" target="_blank" rel="noreferrer" onClick={closeMenu}>{t.quote}</a>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
