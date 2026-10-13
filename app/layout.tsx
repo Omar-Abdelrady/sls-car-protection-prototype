@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Cairo, Manrope } from "next/font/google";
+import { IBM_Plex_Sans_Arabic, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
 import { LocaleProvider } from "@/components/locale-toggle";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import "./globals.css";
 
-const cairo = Cairo({
+const ibmPlexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-cairo",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex-arabic",
   display: "swap",
 });
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} ${manrope.variable}`}>
+    <html lang="ar" dir="rtl" className={`${ibmPlexArabic.variable} ${manrope.variable}`}>
       <body>
         <LocaleProvider>
           <SmoothScroll>{children}</SmoothScroll>
